@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;HW2_Q1/part1&apos; to &apos;topology&apos;" description="Rename resource &apos;part1&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="part1" name="topology" stamp="1747949510705" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;HW2_Q1/topology/Network.ned&apos; to &apos;Part1.ned&apos;" description="Rename resource &apos;Network.ned&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="topology/Network.ned" name="Part1.ned" stamp="1747956094067" updateReferences="true"/>
-</session>

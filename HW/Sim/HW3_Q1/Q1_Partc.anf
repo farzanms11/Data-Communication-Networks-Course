@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<analysis version="2">
-    <inputs>
-        <input pattern="results/Q1_Partc-*.vec"/>
-        <input pattern="results/Q1_Partc-*.sca"/>
-    </inputs>
-    <charts/>
-</analysis>

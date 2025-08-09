@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;HW2_Q1/omnetpp.ini&apos; to &apos;ThroughputInit.ini&apos;" description="Rename resource &apos;omnetpp.ini&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="omnetpp.ini" name="ThroughputInit.ini" stamp="1747590687033" updateReferences="true"/>
-</session>

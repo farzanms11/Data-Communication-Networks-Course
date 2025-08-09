@@ -1,6 +1,0 @@
-15:09:14 **** Build of configuration release for project HW2_Q1 ****
-make MODE=release all 
-make: Nothing to be done for 'all'.
-
-15:09:14 Build Finished. 0 errors, 0 warnings. (took 363ms)
-

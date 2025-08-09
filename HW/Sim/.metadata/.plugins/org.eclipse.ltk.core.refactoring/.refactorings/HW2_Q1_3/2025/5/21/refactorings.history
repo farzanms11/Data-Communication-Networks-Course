@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;HW2_Q1_3/EndtoEndDelayMeasurement.ned&apos; to &apos;DelayMeasurement.ned&apos;" description="Rename resource &apos;EndtoEndDelayMeasurement.ned&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="EndtoEndDelayMeasurement.ned" name="DelayMeasurement.ned" stamp="1747591744748" updateReferences="true"/>
-</session>
