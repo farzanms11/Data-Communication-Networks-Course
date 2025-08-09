@@ -1,0 +1,6 @@
+21:26:16 **** Incremental Build of configuration release for project HW2_Q1_2 ****
+make MODE=release all 
+Creating executable: out/clang-release//HW2_Q1_2.exe
+
+21:26:18 Build Finished. 0 errors, 0 warnings. (took 1s.363ms)
+

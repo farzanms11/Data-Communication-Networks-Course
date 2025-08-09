@@ -1,0 +1,97 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{course}
+
+%page settings
+
+\RequirePackage{graphicx,tabularx}
+\RequirePackage{array}
+\RequirePackage{multicol}
+\RequirePackage{multirow}
+\RequirePackage{xspace}
+\usepackage{changepage}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[framed, numbered]{matlab-prettifier}
+
+
+%\RequirePackage{xepersian}
+
+\newcolumntype{x}[1]{>{\centering\arraybackslash\hspace{0pt}}p{#1}}
+
+
+
+\newcommand{\heading}[7]
+{
+	%set paging
+	\renewcommand{\thepage}{\arabic{page}}
+	\begin{table}[ht]
+		
+		\begin{tabular}[c]{m{4in}  m{0.18in} x{2in}}
+			\Large #1 &&\multirow{2}{*}[0.1em]{\includegraphics[width=5.9em]{Shariflogo.png}} \\ [1em]
+			\large#4 && \\ [0.5em]
+			\large#3 &&  #2 \\ [0.5em]		
+			\hline 
+		\end{tabular}
+			
+			
+		\begin{tabularx}{\textwidth} {  >{\raggedleft\arraybackslash}X 
+				 >{\centering\arraybackslash}X 
+				 >{\raggedright\arraybackslash}X  }		
+			 \rule{0pt}{3ex}  	#5 & 	\large \textbf{#7}  & #6 \\[0.6em]
+			\hline
+		\end{tabularx}
+	
+		\noindent
+	\end{table}
+}
+
+\newcommand{\mt}{\lr{MATLAB}
+}
+
+\newcommand{\handout}[5]{
+	\newcounter{year}
+	\setcounter{year}{#4}
+	\stepcounter{year}
+	\heading
+	{#1}{}{استاد: #2}{نیم‌سال #3
+		#4\lr{-}\the\value{year}}
+	{\large{سید معین الدین مکیان}}{شماره دانشجویی: 99102264}{#5}
+}
+
+\newcounter{quest}
+\newenvironment{question}
+{
+	
+	\stepcounter{quest}
+	\subsubsection{سوال \arabic{subsubsection}:}
+	
+}
+
+\newcounter{subquest}
+\newenvironment{subquestion}
+{
+
+	\stepcounter{subquest}
+	\textbf{بخش \arabic{subquest}.\arabic{quest}:}
+	\addcontentsline{toc}{subsubsection}{بخش \arabic{subquest}}  
+}
+
+\newcounter{code-counter}
+\newenvironment{code}[1]
+{
+	\stepcounter{code-counter}
+	\section*{\small{(قطعه کد \arabic{code-counter})}:\footnotesize{#1}}	
+}
+
+\newcommand\placeholder[1]%
+{%
+	\lr{
+	\bgroup
+	\normalfont\upshape\color{RubineRed}%
+	\textlangle{\itshape #1\/}\textrangle%
+	\egroup}
+}
+
+
+
+
+\newsavebox\mybox

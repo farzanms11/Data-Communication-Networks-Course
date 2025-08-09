@@ -1,0 +1,6 @@
+20:30:15 **** Incremental Build of configuration release for project HW4_Q2 ****
+make MODE=release all 
+make: Nothing to be done for 'all'.
+
+20:30:15 Build Finished. 0 errors, 0 warnings. (took 354ms)
+

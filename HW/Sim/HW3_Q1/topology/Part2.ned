@@ -1,0 +1,62 @@
+package topology;
+import inet.node.ethernet.EthernetHost;
+import inet.node.ethernet.EthernetSwitch;
+import inet.node.ethernet.Eth10M;
+
+network Part2
+{
+    @display("bgb=1000,500");
+    submodules:
+        host1: EthernetHost {
+            @display("p=150,100");
+        }
+        host2: EthernetHost {
+            @display("p=150,200");
+        }
+        host3: EthernetHost {
+            @display("p=150,300");
+        }
+        host4: EthernetHost {
+            @display("p=150,400");
+        }
+        host5: EthernetHost {
+            @display("p=850,100");
+        }
+        host6: EthernetHost {
+            @display("p=850,200");
+        }
+        host7: EthernetHost {
+            @display("p=850,300");
+        }
+        host8: EthernetHost {
+            @display("p=850,400");
+        }
+        server1: EthernetHost {
+            @display("p=500,50");
+        }
+        server2: EthernetHost {
+            @display("p=500,450");
+        }
+        ethernetSwitch1: EthernetSwitch {
+            @display("p=500,150");
+        }
+        ethernetSwitch2: EthernetSwitch {
+            @display("p=500,250");
+        }
+        ethernetSwitch3: EthernetSwitch {
+            @display("p=500,350");
+        }
+    connections:
+        host1.ethg <--> Eth10M {  length = 10m; } <--> ethernetSwitch1.ethg++;
+        host2.ethg <--> Eth10M {  length = 10m; } <--> ethernetSwitch2.ethg++;
+        host3.ethg <--> Eth10M {  length = 10m; } <--> ethernetSwitch2.ethg++;
+        host4.ethg <--> Eth10M {  length = 10m; } <--> ethernetSwitch3.ethg++;
+        host5.ethg <--> Eth10M {  length = 10m; } <--> ethernetSwitch1.ethg++;
+        host6.ethg <--> Eth10M {  length = 10m; } <--> ethernetSwitch2.ethg++;
+        host7.ethg <--> Eth10M {  length = 10m; } <--> ethernetSwitch2.ethg++;
+        host8.ethg <--> Eth10M {  length = 10m; } <--> ethernetSwitch3.ethg++;
+        server1.ethg <--> Eth10M {  length = 10m; } <--> ethernetSwitch1.ethg++;
+        server2.ethg <--> Eth10M {  length = 10m; } <--> ethernetSwitch3.ethg++;
+        ethernetSwitch1.ethg++ <--> Eth10M {  length = 10m; } <--> ethernetSwitch2.ethg++;
+        ethernetSwitch3.ethg++ <--> Eth10M {  length = 10m; } <--> ethernetSwitch2.ethg++;
+}

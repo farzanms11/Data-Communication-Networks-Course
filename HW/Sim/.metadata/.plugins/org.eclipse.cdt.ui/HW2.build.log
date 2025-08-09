@@ -1,0 +1,10 @@
+17:57:40 **** Incremental Build of configuration debug for project HW2 ****
+make MODE=debug all 
+Creating executable: out/clang-debug//HW2_dbg.exe
+clang++: error: no such file or directory: '6/data'
+clang++: error: no such file or directory: 'network/HW/Sim/inet4.5/src'
+make: *** [Makefile:103: out/clang-debug//HW2_dbg.exe] Error 1
+"make MODE=debug all" terminated with exit code 2. Build might be incomplete.
+
+17:57:40 Build Failed. 1 errors, 0 warnings. (took 462ms)
+

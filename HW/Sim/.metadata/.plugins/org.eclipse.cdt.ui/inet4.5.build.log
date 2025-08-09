@@ -1,0 +1,14 @@
+17:49:10 **** Incremental Build of configuration release for project inet4.5 ****
+make MODE=release -j12 all 
+make[1]: Entering directory '/f/term 6/data network/HW/Sim/inet4.5/src'
+*** CCACHE not detected - using precompiled headers
+*** COMPILING with:
+clang++ -c -std=c++17  -D__GXX_TYPEINFO_EQUALITY_INLINE=0 -O3 -DNDEBUG=1 -g1 -ffp-contract=off   -MMD -MP -MF .d    -isystem /opt/mingw64/include -Wno-deprecated-register -Wno-unused-function -fno-omit-frame-pointer -DINET_EXPORT  -Wno-overloaded-virtual -include inet/common/precompiled_release.h -DOMNETPPLIBS_IMPORT -DINET_EXPORT -I. -I/c/Users/juve2/Downloads/omnetpp-6.1/include
+*** LINKING with:
+clang++ -shared  -o ../out/clang-release/src/libINET.dll  -Wl,--allow-multiple-definition -Wl,--whole-archive  -Wl,--no-whole-archive -loppenvir -loppsim -lstdc++    -fuse-ld=lld  -L/usr/bin -L/opt/mingw64/lib -L/c/Users/juve2/Downloads/omnetpp-6.1/lib -Wl,--out-implib,../out/clang-release/src/libINET.dll.a -Wl,--output-def,../out/clang-release/src/libINET.def -lws2_32 
+Building...
+make[1]: Nothing to be done for 'all-pch'.
+make[1]: Leaving directory '/f/term 6/data network/HW/Sim/inet4.5/src'
+
+17:49:13 Build Finished. 0 errors, 0 warnings. (took 2s.558ms)
+

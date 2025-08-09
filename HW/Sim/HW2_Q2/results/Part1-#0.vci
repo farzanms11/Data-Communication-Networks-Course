@@ -1,0 +1,667 @@
+file 56883764 1747991554                                        
+version 3
+run Part1-0-20250523-12:33:41-20152
+attr configname Part1
+attr datetime 20250523-12:33:41
+attr datetimef 20250523-123341
+attr experiment Part1
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network topology.Part1
+attr processid 20152
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config image-path D:/inet4.5/images
+config network topology.Part1
+config *.wiredSource.numApps 1
+config *.wiredSource.app[0].typename PingApp
+config *.wiredSource.app[0].destAddr "\"wiredDestination\""
+config *.linkVisualizer.*.displayLinks true
+config *.linkVisualizer.*.fadeOutTime 4s
+
+vector 0 Part1.wiredSource.ethernet encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source encapPk
+attr title "packets encapsulated, packetBytes"
+vector 1 Part1.wiredSource.ethernet decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source decapPk
+attr title "packets decapsulated, packetBytes"
+vector 2 Part1.wiredSource.ethernet pauseSent:vector ETV
+attr recordingmode vector
+attr title "pause sent"
+vector 3 Part1.wiredSource.lo[0].lo rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, packetBytes"
+vector 4 Part1.wiredSource.lo[0].lo passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 5 Part1.wiredSource.lo[0] packetDropInterfaceDown:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, packetBytes"
+vector 6 Part1.wiredSource.lo[0] packetDropNoCarrier:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, packetBytes"
+vector 7 Part1.wiredSource.eth[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 8 Part1.wiredSource.eth[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 9 Part1.wiredSource.eth[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 10 Part1.wiredSource.eth[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 11 Part1.wiredSource.eth[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 12 Part1.wiredSource.eth[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 13 Part1.wiredSource.eth[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 14 Part1.wiredSource.eth[0].queue droppedPacketLengthsQueueOverflow:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetDropReasonIsQueueOverflow(packetDropped))
+attr title "dropped packet lengths: queue overflow"
+attr unit b
+vector 15 Part1.wiredSource.eth[0].queue flowQueueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(demuxFlow(packetPulled))
+attr title "flow queueing times"
+attr unit s
+vector 16 Part1.wiredSource.eth[0].queue flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(flowPacketLength(demuxFlow(packetPushStarted)))
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 17 Part1.wiredSource.eth[0].queue flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(flowPacketLength(demuxFlow(packetPulled)))
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 18 Part1.wiredSource.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 19 Part1.wiredSource.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 20 Part1.wiredSource.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 21 Part1.wiredSource.eth[0].mac txPausePkUnits:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "pause units sent"
+vector 22 Part1.wiredSource.eth[0].mac rxPausePkUnits:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "pause units received"
+vector 23 Part1.wiredSource.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 24 Part1.wiredSource.eth[0].mac packetDropIncorrectlyReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, packetBytes"
+vector 25 Part1.wiredSource.eth[0].mac packetDropInterfaceDown:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drop: interface down, packetBytes"
+vector 26 Part1.wiredSource.eth[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, packetBytes"
+vector 27 Part1.wiredSource.eth[0] packetDropInterfaceDown:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, packetBytes"
+vector 28 Part1.wiredSource.eth[0] packetDropNoCarrier:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, packetBytes"
+vector 29 Part1.wiredSource.ipv4.ip packetDropAddressResolutionFailed:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, packetBytes"
+vector 30 Part1.wiredSource.ipv4.ip packetDropHopLimitReached:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, packetBytes"
+vector 31 Part1.wiredSource.ipv4.ip packetDropForwardingDisabled:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, packetBytes"
+vector 32 Part1.wiredSource.ipv4.ip packetDropNoInterfaceFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, packetBytes"
+vector 33 Part1.wiredSource.ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, packetBytes"
+vector 34 Part1.wiredSource.ipv4.ip packetDropUndefined:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, packetBytes"
+vector 35 Part1.wiredSource.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr recordingmode vector(packetBytes)
+attr source arpRequestSent
+attr title "ARP request sent, packetBytes"
+vector 36 Part1.wiredSource.ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr recordingmode vector(packetBytes)
+attr source arpReplySent
+attr title "ARP replies sent, packetBytes"
+vector 37 Part1.wiredSource.udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSent
+attr title "packets sent, packetBytes"
+vector 38 Part1.wiredSource.udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceived
+attr title "packets received, packetBytes"
+vector 39 Part1.wiredSource.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 40 Part1.wiredSource.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 41 Part1.wiredSource.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 42 Part1.wiredSource.app[0] rtt:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "ping round-trip time"
+attr unit s
+vector 43 Part1.wiredSource.app[0] numLost:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "pings lost"
+vector 44 Part1.wiredSource.app[0] numOutOfOrderArrivals:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "ping out-of-order arrivals"
+vector 45 Part1.wiredSource.app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "ping tx seq"
+vector 46 Part1.wiredSource.app[0] pingRxSeq:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "ping rx seq"
+vector 47 Part1.wiredDestination.ethernet encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source encapPk
+attr title "packets encapsulated, packetBytes"
+vector 48 Part1.wiredDestination.ethernet decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source decapPk
+attr title "packets decapsulated, packetBytes"
+vector 49 Part1.wiredDestination.ethernet pauseSent:vector ETV
+attr recordingmode vector
+attr title "pause sent"
+vector 50 Part1.wiredDestination.lo[0].lo rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, packetBytes"
+vector 51 Part1.wiredDestination.lo[0].lo passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 52 Part1.wiredDestination.lo[0] packetDropInterfaceDown:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, packetBytes"
+vector 53 Part1.wiredDestination.lo[0] packetDropNoCarrier:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, packetBytes"
+vector 54 Part1.wiredDestination.eth[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 55 Part1.wiredDestination.eth[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 56 Part1.wiredDestination.eth[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 57 Part1.wiredDestination.eth[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 58 Part1.wiredDestination.eth[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 59 Part1.wiredDestination.eth[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 60 Part1.wiredDestination.eth[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 61 Part1.wiredDestination.eth[0].queue droppedPacketLengthsQueueOverflow:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetDropReasonIsQueueOverflow(packetDropped))
+attr title "dropped packet lengths: queue overflow"
+attr unit b
+vector 62 Part1.wiredDestination.eth[0].queue flowQueueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(demuxFlow(packetPulled))
+attr title "flow queueing times"
+attr unit s
+vector 63 Part1.wiredDestination.eth[0].queue flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(flowPacketLength(demuxFlow(packetPushStarted)))
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 64 Part1.wiredDestination.eth[0].queue flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(flowPacketLength(demuxFlow(packetPulled)))
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 65 Part1.wiredDestination.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 66 Part1.wiredDestination.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 67 Part1.wiredDestination.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 68 Part1.wiredDestination.eth[0].mac txPausePkUnits:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "pause units sent"
+vector 69 Part1.wiredDestination.eth[0].mac rxPausePkUnits:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "pause units received"
+vector 70 Part1.wiredDestination.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 71 Part1.wiredDestination.eth[0].mac packetDropIncorrectlyReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, packetBytes"
+vector 72 Part1.wiredDestination.eth[0].mac packetDropInterfaceDown:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drop: interface down, packetBytes"
+vector 73 Part1.wiredDestination.eth[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, packetBytes"
+vector 74 Part1.wiredDestination.eth[0] packetDropInterfaceDown:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, packetBytes"
+vector 75 Part1.wiredDestination.eth[0] packetDropNoCarrier:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, packetBytes"
+vector 76 Part1.wiredDestination.ipv4.ip packetDropAddressResolutionFailed:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, packetBytes"
+vector 77 Part1.wiredDestination.ipv4.ip packetDropHopLimitReached:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, packetBytes"
+vector 78 Part1.wiredDestination.ipv4.ip packetDropForwardingDisabled:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, packetBytes"
+vector 79 Part1.wiredDestination.ipv4.ip packetDropNoInterfaceFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, packetBytes"
+vector 80 Part1.wiredDestination.ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, packetBytes"
+vector 81 Part1.wiredDestination.ipv4.ip packetDropUndefined:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, packetBytes"
+vector 82 Part1.wiredDestination.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr recordingmode vector(packetBytes)
+attr source arpRequestSent
+attr title "ARP request sent, packetBytes"
+vector 83 Part1.wiredDestination.ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr recordingmode vector(packetBytes)
+attr source arpReplySent
+attr title "ARP replies sent, packetBytes"
+vector 84 Part1.wiredDestination.udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSent
+attr title "packets sent, packetBytes"
+vector 85 Part1.wiredDestination.udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceived
+attr title "packets received, packetBytes"
+vector 86 Part1.wiredDestination.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 87 Part1.wiredDestination.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 88 Part1.wiredDestination.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+7	21915 45 0 0 0 0 5 0 0 0 0
+8	21960 45 0 0 0 0 5 0 0 0 0
+39	22005 10 0 0 0 0 1 0 0 0 0
+40	22015 10 0 0 0 0 1 0 0 0 0
+41	22025 10 0 0 0 0 1 0 0 0 0
+45	22035 23 1 1 0.548813502304 0.548813502304 1 0 0 0 0
+54	22058 50 0 0 0 0 5 0 0 0 0
+55	22108 50 0 0 0 0 5 0 0 0 0
+86	22158 10 0 0 0 0 1 0 0 0 0
+87	22168 10 0 0 0 0 1 0 0 0 0
+88	22178 10 0 0 0 0 1 0 0 0 0
+35	22188 24 3 3 0.548813502304 0.548813502304 1 28 28 28 784
+0	22212 23 4 4 0.548813502304 0.548813502304 1 28 28 28 784
+7	22235 22 5 5 0.548813502304 0.548813502304 1 0 0 0 0
+8	22257 22 5 5 0.548813502304 0.548813502304 1 0 0 0 0
+9	22279 22 5 5 0.548813502304 0.548813502304 1 0 0 0 0
+10	22301 25 5 5 0.548813502304 0.548813502304 1 368 368 368 135424
+12	22326 25 5 5 0.548813502304 0.548813502304 1 368 368 368 135424
+23	22351 24 5 5 0.548813502304 0.548813502304 1 46 46 46 2116
+18	22375 24 6 6 0.548819262304 0.548819262304 1 64 64 64 4096
+66	22399 24 7 7 0.548819312304 0.548819312304 1 64 64 64 4096
+67	22423 24 7 7 0.548819312304 0.548819312304 1 64 64 64 4096
+48	22447 24 8 8 0.548819312304 0.548819312304 1 46 46 46 2116
+83	22471 24 9 9 0.548819312304 0.548819312304 1 28 28 28 784
+47	22495 25 10 10 0.548819312304 0.548819312304 1 28 28 28 784
+54	22520 24 11 11 0.548819312304 0.548819312304 1 0 0 0 0
+55	22544 24 11 11 0.548819312304 0.548819312304 1 0 0 0 0
+56	22568 24 11 11 0.548819312304 0.548819312304 1 0 0 0 0
+57	22592 26 11 11 0.548819312304 0.548819312304 1 368 368 368 135424
+59	22618 26 11 11 0.548819312304 0.548819312304 1 368 368 368 135424
+70	22644 25 11 11 0.548819312304 0.548819312304 1 46 46 46 2116
+65	22669 25 13 13 0.548825072304 0.548825072304 1 64 64 64 4096
+19	22694 25 14 14 0.548825122304 0.548825122304 1 64 64 64 4096
+20	22719 25 14 14 0.548825122304 0.548825122304 1 64 64 64 4096
+1	22744 24 15 15 0.548825122304 0.548825122304 1 46 46 46 2116
+0	22768 24 17 17 0.548825122304 0.548825122304 1 84 84 84 7056
+7	22792 23 18 18 0.548825122304 0.548825122304 1 0 0 0 0
+8	22815 23 18 18 0.548825122304 0.548825122304 1 0 0 0 0
+9	22838 23 18 18 0.548825122304 0.548825122304 1 0 0 0 0
+10	22861 26 18 18 0.548825122304 0.548825122304 1 816 816 816 665856
+12	22887 26 18 18 0.548825122304 0.548825122304 1 816 816 816 665856
+23	22913 26 18 18 0.548825122304 0.548825122304 1 102 102 102 10404
+18	22939 26 20 20 0.548833922304 0.548833922304 1 102 102 102 10404
+66	22965 26 21 21 0.548833972304 0.548833972304 1 102 102 102 10404
+67	22991 26 21 21 0.548833972304 0.548833972304 1 102 102 102 10404
+48	23017 25 22 22 0.548833972304 0.548833972304 1 84 84 84 7056
+47	23042 25 26 26 0.548833972304 0.548833972304 1 84 84 84 7056
+54	23067 24 27 27 0.548833972304 0.548833972304 1 0 0 0 0
+55	23091 24 27 27 0.548833972304 0.548833972304 1 0 0 0 0
+56	23115 24 27 27 0.548833972304 0.548833972304 1 0 0 0 0
+57	23139 26 27 27 0.548833972304 0.548833972304 1 816 816 816 665856
+59	23165 26 27 27 0.548833972304 0.548833972304 1 816 816 816 665856
+70	23191 26 27 27 0.548833972304 0.548833972304 1 102 102 102 10404
+65	23217 26 29 29 0.548842772304 0.548842772304 1 102 102 102 10404
+19	23243 26 30 30 0.548842822304 0.548842822304 1 102 102 102 10404
+20	23269 26 30 30 0.548842822304 0.548842822304 1 102 102 102 10404
+1	23295 24 31 31 0.548842822304 0.548842822304 1 84 84 84 7056
+0	23319 48 38 58 1.548813502304 2.548813502304 2 84 84 168 14112
+1	23367 24 51 51 1.548831202304 1.548831202304 1 84 84 84 7056
+7	23391 46 39 59 1.548813502304 2.548813502304 2 0 0 0 0
+8	23437 46 39 59 1.548813502304 2.548813502304 2 0 0 0 0
+9	23483 46 39 59 1.548813502304 2.548813502304 2 0 0 0 0
+10	23529 52 39 59 1.548813502304 2.548813502304 2 816 816 1632 1331712
+11	23581 463 39 59 0.648833986513 2.448833986513 19 0 11840 20000 206771200
+12	24044 52 39 59 1.548813502304 2.548813502304 2 816 816 1632 1331712
+13	24096 463 39 59 0.648833986513 2.448833986513 19 0 11840 20000 206771200
+18	24559 52 40 60 1.548822302304 2.548822302304 2 102 102 204 20808
+19	24611 26 50 50 1.548831202304 1.548831202304 1 102 102 102 10404
+20	24637 26 50 50 1.548831202304 1.548831202304 1 102 102 102 10404
+23	24663 52 39 59 1.548813502304 2.548813502304 2 102 102 204 20808
+42	24715 63 33 53 0.548842822304 1.548831202304 2 1.77e-05 2.932e-05 4.702e-05 1.1729524e-09
+45	24778 48 36 56 1.548813502304 2.548813502304 2 1 2 3 5
+46	24826 48 33 53 0.548842822304 1.548831202304 2 0 1 1 1
+47	24874 50 46 66 1.548822352304 2.548822352304 2 84 84 168 14112
+48	24924 50 42 62 1.548822352304 2.548822352304 2 84 84 168 14112
+54	24974 48 47 67 1.548822352304 2.548822352304 2 0 0 0 0
+55	25022 48 47 67 1.548822352304 2.548822352304 2 0 0 0 0
+56	25070 48 47 67 1.548822352304 2.548822352304 2 0 0 0 0
+57	25118 52 47 67 1.548822352304 2.548822352304 2 816 816 1632 1331712
+58	25170 463 47 67 0.648833986513 2.448833986513 19 0 11840 20000 206771200
+59	25633 52 47 67 1.548822352304 2.548822352304 2 816 816 1632 1331712
+60	25685 463 47 67 0.648833986513 2.448833986513 19 0 11840 20000 206771200
+65	26148 26 49 49 1.548831152304 1.548831152304 1 102 102 102 10404
+66	26174 52 41 61 1.548822352304 2.548822352304 2 102 102 204 20808
+67	26226 52 41 61 1.548822352304 2.548822352304 2 102 102 204 20808
+70	26278 52 47 67 1.548822352304 2.548822352304 2 102 102 204 20808
+11	26330 976443 79 65977 2.548833986513 3279.248833986513 32768 0 11840 26839680 220188211200
+13	1002773 976443 79 65977 2.548833986513 3279.248833986513 32768 0 11840 26839680 220188211200
+58	1979216 976473 87 65985 2.548833986513 3279.248833986513 32768 0 11840 26839680 220188211200
+60	2955689 976473 87 65985 2.548833986513 3279.248833986513 32768 0 11840 26839680 220188211200
+11	3932162 1008754 65977 131895 3279.348833986513 6556.048833986513 32768 0 11840 26839680 220188211200
+13	4940916 1008754 65977 131895 3279.348833986513 6556.048833986513 32768 0 11840 26839680 220188211200
+58	5949670 1008764 65985 131903 3279.348833986513 6556.048833986513 32768 0 11840 26839680 220188211200
+60	6958434 1008764 65985 131903 3279.348833986513 6556.048833986513 32768 0 11840 26839680 220188211200
+11	7967198 1025666 131895 197813 6556.148833986513 9832.848833986513 32768 0 11840 26839680 220188211200
+13	8992864 1025666 131895 197813 6556.148833986513 9832.848833986513 32768 0 11840 26839680 220188211200
+58	10018530 1025666 131903 197821 6556.148833986513 9832.848833986513 32768 0 11840 26839680 220188211200
+60	11044196 1025666 131903 197821 6556.148833986513 9832.848833986513 32768 0 11840 26839680 220188211200
+11	12069862 1056763 197813 263731 9832.948833986513 13109.648833986513 32768 0 11840 26839680 220188211200
+13	13126625 1056763 197813 263731 9832.948833986513 13109.648833986513 32768 0 11840 26839680 220188211200
+58	14183388 1056763 197821 263739 9832.948833986513 13109.648833986513 32768 0 11840 26839680 220188211200
+60	15240151 1056763 197821 263739 9832.948833986513 13109.648833986513 32768 0 11840 26839680 220188211200
+0	16296914 502168 78 323580 3.548813502304 16085.548813502304 16216 28 84 1354696 113585920
+1	16799082 502164 71 323573 2.548831202304 16084.548831202304 16216 46 84 1357090 113763076
+7	17301246 485952 79 323581 3.548813502304 16085.548813502304 16216 0 0 0 0
+8	17787198 485952 79 323581 3.548813502304 16085.548813502304 16216 0 0 0 0
+9	18273150 485952 79 323581 3.548813502304 16085.548813502304 16216 0 0 0 0
+10	18759102 534600 79 323581 3.548813502304 16085.548813502304 16216 368 816 13172672 10726973440
+11	19293702 961206 263731 323581 13109.748833986513 16085.448833986513 29758 0 11840 24368000 199932160000
+12	20254908 534600 79 323581 3.548813502304 16085.548813502304 16216 368 816 13172672 10726973440
+13	20789508 961206 263731 323581 13109.748833986513 16085.448833986513 29758 0 11840 24368000 199932160000
+18	21750714 534469 80 323582 3.548822302304 16085.548822302304 16216 64 102 1648978 167872300
+19	22285183 534463 70 323572 2.548831202304 16084.548831202304 16216 64 102 1648978 167872300
+20	22819646 534463 70 323572 2.548831202304 16084.548831202304 16216 64 102 1648978 167872300
+23	23354109 534467 79 323581 3.548813502304 16085.548813502304 16216 46 102 1646584 167608960
+35	23888576 2111 4851 319971 241.548813502304 15906.548813502304 66 28 28 1848 51744
+36	23890687 2143 2432 322400 120.548828162304 16026.548828162304 67 28 28 1876 52528
+42	23892830 610757 73 323575 2.548831202304 16084.548831202304 16083 1.77e-05 2.932e-05 0.28621456000007 5.111310599201e-06
+45	24503587 551281 76 323578 3.548813502304 16085.548813502304 16083 3 16085 129371652 1387338504330
+46	25054868 551273 73 323575 2.548831202304 16084.548831202304 16083 2 16084 129355569 1387079777109
+47	25606141 518388 86 323588 3.548822352304 16085.548822352304 16216 28 84 1354696 113585920
+48	26124529 518386 82 323584 3.548822352304 16085.548822352304 16216 46 84 1357090 113763076
+54	26642915 502140 87 323569 3.548822352304 16084.548822352304 16215 0 0 0 0
+55	27145055 502140 87 323569 3.548822352304 16084.548822352304 16215 0 0 0 0
+56	27647195 502172 87 323589 3.548822352304 16085.548822352304 16216 0 0 0 0
+57	28149367 534604 87 323589 3.548822352304 16085.548822352304 16216 368 816 13172672 10726973440
+58	28683971 961206 263739 323589 13109.748833986513 16085.448833986513 29758 0 11840 24368000 199932160000
+59	29645177 534604 87 323589 3.548822352304 16085.548822352304 16216 368 816 13172672 10726973440
+60	30179781 960950 263739 323589 13109.748833986513 16084.648833986513 29750 0 11840 24368000 199932160000
+65	31140731 534463 69 323571 2.548831152304 16084.548831152304 16216 64 102 1648978 167872300
+66	31675194 534469 81 323583 3.548822352304 16085.548822352304 16216 64 102 1648978 167872300
+67	32209663 534469 81 323583 3.548822352304 16085.548822352304 16216 64 102 1648978 167872300
+70	32744132 534437 87 323569 3.548822352304 16084.548822352304 16215 46 102 1646482 167598556
+82	33278569 2143 2425 322393 120.548822352304 16026.548822352304 67 28 28 1876 52528
+83	33280712 2111 4857 319977 241.548819312304 15906.548819312304 66 28 28 1848 51744
+60	33282823 1058431 323589 389487 16084.748833986513 19361.448833986513 32768 0 11840 26831520 220121625600
+11	34341254 1058434 323601 389499 16085.548833986513 19362.248833986513 32768 0 11840 26839680 220188211200
+13	35399688 1058434 323601 389499 16085.548833986513 19362.248833986513 32768 0 11840 26839680 220188211200
+58	36458122 1058434 323609 389507 16085.548833986513 19362.248833986513 32768 0 11840 26839680 220188211200
+60	37516556 1058434 389507 455405 19361.548833986513 22638.248833986513 32768 0 11840 26839680 220188211200
+11	38574990 1058434 389499 455417 19362.348833986513 22639.048833986513 32768 0 11840 26839680 220188211200
+13	39633424 1058434 389499 455417 19362.348833986513 22639.048833986513 32768 0 11840 26839680 220188211200
+58	40691858 1058434 389507 455425 19362.348833986513 22639.048833986513 32768 0 11840 26839680 220188211200
+60	41750292 1058435 455405 521337 22638.348833986513 25915.048833986513 32768 0 11840 26843360 220261811200
+11	42808727 1058435 455417 521349 22639.148833986513 25915.848833986513 32768 0 11840 26843360 220261811200
+13	43867162 1058435 455417 521349 22639.148833986513 25915.848833986513 32768 0 11840 26843360 220261811200
+58	44925597 1058435 455425 521357 22639.148833986513 25915.848833986513 32768 0 11840 26843360 220261811200
+0	45984032 356416 323600 545788 16086.548813502304 27131.548813502304 11138 28 84 930440 78012704
+1	46340448 356416 323593 545781 16085.548831202304 27130.548831202304 11138 46 84 932096 78135248
+7	46696864 345278 323601 545789 16086.548813502304 27131.548813502304 11138 0 0 0 0
+8	47042142 345278 323601 545789 16086.548813502304 27131.548813502304 11138 0 0 0 0
+9	47387420 345278 323601 545789 16086.548813502304 27131.548813502304 11138 0 0 0 0
+10	47732698 378692 323601 545789 16086.548813502304 27131.548813502304 11138 368 816 9047392 7367504384
+11	48111390 392647 521349 545789 25915.948833986513 27131.448833986513 12156 0 11840 9951200 81637504000
+12	48504037 378692 323601 545789 16086.548813502304 27131.548813502304 11138 368 816 9047392 7367504384
+13	48882729 392647 521349 545789 25915.948833986513 27131.448833986513 12156 0 11840 9951200 81637504000
+18	49275376 378600 323602 545790 16086.548822302304 27131.548822302304 11138 64 102 1132580 115299416
+19	49653976 378600 323592 545780 16085.548831202304 27130.548831202304 11138 64 102 1132580 115299416
+20	50032576 378600 323592 545780 16085.548831202304 27130.548831202304 11138 64 102 1132580 115299416
+23	50411176 378600 323601 545789 16086.548813502304 27131.548813502304 11138 46 102 1130924 115117256
+35	50789776 1518 324819 542979 16147.548813502304 26992.548813502304 46 28 28 1288 36064
+36	50791294 1518 327248 545408 16267.548828162304 27112.548828162304 46 28 28 1288 36064
+42	50792812 430886 323595 545783 16085.548831202304 27130.548831202304 11046 1.77e-05 2.932e-05 0.19658324000003 3.5108676007995e-06
+45	51223698 397656 323598 545786 16086.548813502304 27131.548813502304 11046 16086 27131 238687491 5269992642131
+46	51621354 397656 323595 545783 16085.548831202304 27130.548831202304 11046 16085 27130 238676445 5269515278195
+47	52019010 367521 323608 545776 16086.548822352304 27130.548822352304 11137 28 84 930356 78005648
+48	52386531 367554 323604 545792 16086.548822352304 27131.548822352304 11138 46 84 932096 78135248
+54	52754085 356416 323589 545777 16085.548822352304 27130.548822352304 11138 0 0 0 0
+55	53110501 356416 323589 545777 16085.548822352304 27130.548822352304 11138 0 0 0 0
+56	53466917 356384 323609 545777 16086.548822352304 27130.548822352304 11137 0 0 0 0
+57	53823301 378658 323609 545777 16086.548822352304 27130.548822352304 11137 368 816 9046576 7366838528
+58	54201959 392324 521357 545777 25915.948833986513 27130.448833986513 12146 0 11840 9943040 81570918400
+59	54594283 378658 323609 545777 16086.548822352304 27130.548822352304 11137 368 816 9046576 7366838528
+60	54972941 392583 521337 545777 25915.148833986513 27130.448833986513 12154 0 11840 9951200 81637504000
+65	55365524 378600 323591 545779 16085.548831152304 27130.548831152304 11138 64 102 1132580 115299416
+66	55744124 378600 323603 545791 16086.548822352304 27131.548822352304 11138 64 102 1132580 115299416
+67	56122724 378600 323603 545791 16086.548822352304 27131.548822352304 11138 64 102 1132580 115299416
+70	56501324 378600 323589 545777 16085.548822352304 27130.548822352304 11138 46 102 1130924 115117256
+82	56879924 1518 327241 545401 16267.548822352304 27112.548822352304 46 28 28 1288 36064
+83	56881442 1518 324825 542985 16147.548819312304 26992.548819312304 46 28 28 1288 36064
+11	56882960 46 545792 545792 27131.548822352304 27131.548822352304 1 8160.9494619168 8160.9494619168 8160.9494619168 66601096.11996
+13	56883006 46 545792 545792 27131.548822352304 27131.548822352304 1 8160.9494619168 8160.9494619168 8160.9494619168 66601096.11996
+58	56883052 355 545792 545792 27130.548833986513 27131.548822352304 11 0 8160 8160 66585600
+60	56883407 355 545792 545792 27130.548833986513 27131.548822352304 11 0 8160 8160 66585600
+

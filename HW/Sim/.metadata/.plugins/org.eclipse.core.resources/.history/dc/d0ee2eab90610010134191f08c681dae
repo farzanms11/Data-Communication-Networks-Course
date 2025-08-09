@@ -1,0 +1,57 @@
+[General]
+network = AODV
+
+**.arp.typename = "GlobalArp"
+*.configurator.addStaticRoutes = false
+**.netmaskRoutes = ""
+*.*.aodv.useHelloMessages = true
+
+*.source1.numApps = 1
+*.source1.app[0].typename = "PingApp"
+*.source1.app[0].destAddr = "destination"
+*.source1.app[0].printPing = true
+*.source1.app[0].sendInterval = 1s
+
+*.aodvRouter1.mobility.typename = "LinearMobility"
+*.aodvRouter2.mobility.typename = "LinearMobility"
+*.aodvRouter1.mobility.speed = 10mps
+*.aodvRouter2.mobility.speed = 10mps
+
+*.aodvRouter1.mobility.constraintAreaMinY = 50m
+*.aodvRouter1.mobility.constraintAreaMaxY = 350m
+*.aodvRouter2.mobility.constraintAreaMinY = 50m
+*.aodvRouter2.mobility.constraintAreaMaxY = 350m
+*.aodvRouter1.mobility.initialMovementHeading = 90deg
+*.aodvRouter2.mobility.initialMovementHeading = 90deg
+
+**.transmitter.power = 1mW
+**.displayCommunicationRange = true
+
+*.*.routingApp.typename = "Aodv"
+*.visualizer.*.numDataLinkVisualizers = 4
+*.visualizer.*.dataLinkVisualizer[*].activityLevel = "peer"
+*.visualizer.*.dataLinkVisualizer[*].displayLinks = true
+*.visualizer.*.dataLinkVisualizer[0].packetFilter = "ping*"
+*.visualizer.*.dataLinkVisualizer[0].*Color = "blue"
+*.visualizer.*.dataLinkVisualizer[1].packetFilter = "aodv::Rreq"
+*.visualizer.*.dataLinkVisualizer[1].*Color = "green"
+*.visualizer.*.dataLinkVisualizer[2].packetFilter = "aodv::Rrep"
+*.visualizer.*.dataLinkVisualizer[2].*Color = "orange"
+*.visualizer.*.dataLinkVisualizer[3].packetFilter = "aodv::Rerr"
+*.visualizer.*.dataLinkVisualizer[3].*Color = "purple"
+*.visualizer.*.dataLinkVisualizer[*].fadeOutMode = "simulationTime"
+
+*.visualizer.*.routingTableVisualizer.displayLabels = true
+*.visualizer.*.routingTableVisualizer.displayRoutesIndividually = true
+*.visualizer.*.routingTableVisualizer.lineShift = 0
+
+*.visualizer.*.networkRouteVisualizer.displayRoutes = true
+*.visualizer.*.networkRouteVisualizer.packetFilter = "ping*"
+*.visualizer.*.networkRouteVisualizer.fadeOutMode = "simulationTime"
+
+*.visualizer.*.interfaceTableVisualizer.displayInterfaceTables = true
+*.visualizer.*.interfaceTableVisualizer.format = "%a/%l"
+
+*.visualizer.*.routingTableVisualizer.displayRoutingTables = true
+*.visualizer.*.routingTableVisualizer.destinationFilter = "destination"
+*.visualizer.*.routingTableVisualizer.fadeOutMode = "simulationTime"
