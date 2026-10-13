@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Editor and OS files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# OMNeT++ generated binaries, outputs, and local build state
+out/
+*.exe
+*.dll
+*.so
+*.o
+*.obj
+*.vec
+*.vci
+*.elog
+*.log
+.qtenvrc
+Makefile
+
+# Submission archives / raw captures that require privacy review
+*.zip
+*.rar
+*.pcap
+*.pcapng
